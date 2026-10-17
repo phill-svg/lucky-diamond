@@ -30,8 +30,12 @@ jobs:
       - name: Flutter pub get
         run: flutter pub get
 
-      - name: Run tests
+      - name: Run app tests
         run: flutter test
+
+      - name: Run engine tests
+        working-directory: packages/engine
+        run: dart test
 
       - name: Build web
         run: flutter build web --release --base-href "/${{ github.event.repository.name }}/play/app/"

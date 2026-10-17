@@ -1,10 +1,10 @@
 import 'dart:async';
 import 'dart:math';
 
+import 'package:engine/engine.dart';
 import 'package:flutter/material.dart';
 
 import 'colors.dart';
-import 'slot_engine.dart';
 
 const int startingCredits = 1000;
 const List<int> lineBetOptions = [1, 2, 5, 10, 20];

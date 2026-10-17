@@ -4,7 +4,7 @@
 // Run with: dart run tool/rtp.dart [spins]
 import 'dart:math';
 
-import 'package:lucky_diamonds/pokie/slot_engine.dart';
+import 'package:engine/engine.dart';
 
 void main(List<String> args) {
   final spins = args.isEmpty ? 1000000 : int.parse(args.first);

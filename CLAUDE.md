@@ -7,6 +7,9 @@ free-play online pokie (5×3 reels, 10 lines).
 Owner wants it playable online (Flutter web via GitHub Pages) and on iOS
 (unsigned IPA sideload workflow).
 
+Spec: `docs/SPEC.md` (legal position, scope, progress). Implement it; don't
+redesign it.
+
 ## Ground rules
 - Keep it free play: credits have no cash value, no purchases, no cash-out.
   Real-money online pokies can't legally be offered to people in Australia
@@ -23,12 +26,15 @@ Owner wants it playable online (Flutter web via GitHub Pages) and on iOS
 - `lib/pokie/home_screen.dart`: homepage the app opens on (Play now, How to
   play). Play pushes `PokieScreen`; back returns home.
 - `lib/pokie/colors.dart`: shared colours (`pokieGold`, `pokieFelt`, `pokiePanel`).
-- `lib/pokie/slot_engine.dart`: pure game logic (reels, paylines, pays).
+- `packages/engine`: the slot engine as a pure Dart package (no Flutter),
+  imported as `package:engine/engine.dart` by the app, tests, `tool/rtp.dart`
+  and (later) the server. The repo is a pub workspace: one `flutter pub get`
+  at the root resolves both. Engine tests: `cd packages/engine && dart test`.
 - `lib/pokie/pokie_screen.dart`: UI. `PokieScreen(engine:)` takes a seeded
   engine in tests.
 - `tool/rtp.dart`: RTP simulator. After changing pays or reel strips, run
   `dart run tool/rtp.dart 3000000` and keep RTP around 92–95%.
-  `test/slot_engine_test.dart` asserts 88–98%.
+  `packages/engine/test/slot_engine_test.dart` asserts 88–98%.
 - Reel strips are shuffled with a fixed seed per reel (`_strip(counts, seed)`).
 
 ## Working in the cloud container
@@ -48,4 +54,5 @@ Owner wants it playable online (Flutter web via GitHub Pages) and on iOS
   then serve `<dir>` and open `/lucky-diamond/`.
 
 ## Checks before pushing
-`flutter analyze`, `flutter test`, `dart format lib test tool`.
+`flutter analyze`, `flutter test`, `(cd packages/engine && dart test)`,
+`dart format lib test tool packages`.
