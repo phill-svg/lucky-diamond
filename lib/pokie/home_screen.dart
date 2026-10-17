@@ -8,9 +8,8 @@ class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   void _play(BuildContext context) {
-    Navigator.of(
-      context,
-    ).push(MaterialPageRoute<void>(builder: (_) => const PokieScreen()));
+    Navigator.of(context)
+        .push(MaterialPageRoute<void>(builder: (_) => const PokieScreen()));
   }
 
   void _howToPlay(BuildContext context) {

@@ -1,9 +1,12 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'pokie/home_screen.dart';
+import 'pokie/pokie_screen.dart';
 
 void main() {
-  runApp(const PokieApp());
+  // On the website the lobby page is the homepage, so open on the reels.
+  runApp(PokieApp(home: kIsWeb ? const PokieScreen() : const HomeScreen()));
 }
 
 class PokieApp extends StatelessWidget {
