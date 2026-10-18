@@ -31,10 +31,10 @@ on its own start screen (`lib/pokie/home_screen.dart`).
 | `site/` | The website homepage and the `/play/` page around the game |
 | `lib/main.dart` | App entry point; opens on the homepage |
 | `lib/pokie/home_screen.dart` | Homepage with Play now and How to play |
-| `lib/pokie/slot_engine.dart` | Reel strips, paylines, pay table and win evaluation (pure Dart, no UI) |
+| `packages/engine/` | The slot engine: reel strips, paylines, pay table and win evaluation (pure Dart package, shared by app and server) |
 | `lib/pokie/pokie_screen.dart` | The machine UI: animated reels, meters, controls, pay table sheet |
 | `tool/rtp.dart` | Simulates spins to estimate return to player after changing pays or reels |
-| `test/` | Engine rules, RTP range, and widget tests |
+| `test/` | App widget tests (engine tests live in `packages/engine/test/`) |
 
 ## Run it
 
@@ -42,6 +42,7 @@ on its own start screen (`lib/pokie/home_screen.dart`).
 flutter pub get
 flutter run -d chrome      # play in the browser
 flutter test
+(cd packages/engine && dart test)
 ```
 
 ## Put it online

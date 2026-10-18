@@ -5,7 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'package:lucky_diamonds/main.dart';
 import 'package:lucky_diamonds/pokie/pokie_screen.dart';
-import 'package:lucky_diamonds/pokie/slot_engine.dart';
+import 'package:engine/engine.dart';
 
 void main() {
   Future<void> pumpPokie(WidgetTester tester, {int seed = 3}) async {

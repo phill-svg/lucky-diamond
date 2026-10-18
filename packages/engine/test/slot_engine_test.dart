@@ -1,7 +1,7 @@
 import 'dart:math';
 
-import 'package:flutter_test/flutter_test.dart';
-import 'package:lucky_diamonds/pokie/slot_engine.dart';
+import 'package:test/test.dart';
+import 'package:engine/engine.dart';
 
 /// Evaluates a fixed 3×5 grid given as rows.
 SpinResult evaluateGrid(List<List<Sym>> rows, {int lineBet = 1}) {
